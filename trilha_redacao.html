@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redação — Trilha stdy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root{--font-display:'Syne',sans-serif;--font-sans:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;--bg:#0C0F0A;--bg-3:#1C2018;--surface:#1E2219;--surface-2:#252B1F;--border:rgba(160,200,80,.12);--border-2:rgba(160,200,80,.22);--text-1:#E8EDE0;--text-2:#9AA88A;--text-3:#5A6650;--accent:#8FC43A;--accent-dim:rgba(143,196,58,.15);--accent-glow:rgba(143,196,58,.08);--ita:#E05252;--ita-bg:rgba(224,82,82,.12);--c1:#A0D8F0;--c1-bg:rgba(160,216,240,.1);--c1-bg2:rgba(160,216,240,.3);--c2:#A0F0B0;--c2-bg:rgba(160,240,176,.1);--c2-bg2:rgba(160,240,176,.3);--c3:#F0C080;--c3-bg:rgba(240,192,128,.1);--c3-bg2:rgba(240,192,128,.3);--radius:10px;--radius-lg:16px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text-1);min-height:100vh;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(12,15,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--text-2);letter-spacing:.04em;display:flex;align-items:center;gap:7px}.brand i{color:var(--accent)}
+.tabs{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tab{font-family:var(--font-display);font-size:12.5px;font-weight:600;color:var(--text-2);text-decoration:none;padding:7px 15px;border-radius:999px;border:1px solid transparent;transition:all .15s}
+.tab:hover{color:var(--text-1);background:var(--surface-2)}.tab.active{color:var(--accent);background:var(--accent-dim);border-color:rgba(143,196,58,.35)}
+.hero{position:relative;padding:3.5rem 2rem 2.5rem;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% -20%,rgba(143,196,58,.12) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid rgba(143,196,58,.3);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:1.25rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:.85rem}.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:14.5px;color:var(--text-2);max-width:600px;margin:0 auto;line-height:1.6}
+.wrap{max-width:920px;margin:0 auto;padding:2rem 2rem 3rem}
+.crosslink{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;gap:12px}
+.crosslink i{color:var(--accent);font-size:19px;margin-top:1px;flex-shrink:0}.crosslink p{font-size:12.5px;color:var(--text-2);line-height:1.6}.crosslink a{color:var(--accent);text-decoration:none;font-weight:600}.crosslink a:hover{text-decoration:underline}
+.howto{background:var(--accent-glow);border:1px dashed rgba(143,196,58,.35);border-radius:var(--radius);padding:.9rem 1.2rem;margin-bottom:2rem;font-size:12.5px;color:var(--text-2);display:flex;align-items:center;gap:10px;line-height:1.5}.howto i{color:var(--accent);font-size:18px;flex-shrink:0}.howto strong{color:var(--text-1);font-weight:600}
+.course-block{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);margin-bottom:2rem}
+.course-header{padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem}
+.course-num{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.course-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-1);margin-bottom:3px}
+.course-meta{font-size:12px;color:var(--text-3);display:flex;gap:12px;flex-wrap:wrap}.course-meta span{display:flex;align-items:center;gap:4px}
+.course-body{padding:1.25rem 1.5rem}
+.course-desc{font-size:12.5px;color:var(--text-2);line-height:1.6;margin-bottom:1.1rem;border-left:2px solid var(--border-2);padding-left:.875rem}
+.topics{display:flex;flex-direction:column;gap:7px}
+.topic{background:var(--bg-3);border:1px solid var(--border);border-radius:9px;overflow:hidden;transition:border-color .15s,background .15s}
+.topic.open{border-color:var(--border-2);background:var(--surface-2)}
+.topic-head{width:100%;display:flex;align-items:center;gap:9px;background:none;border:none;cursor:pointer;padding:11px 12px;text-align:left;font-family:var(--font-sans);color:var(--text-2);font-size:12.5px;transition:color .15s}
+.topic-head:hover{color:var(--text-1)}.topic.open .topic-head{color:var(--text-1)}
+.topic-head .mk{font-size:13px;flex-shrink:0;font-family:var(--font-mono);font-weight:500}
+.topic-head .t-title{flex:1;line-height:1.4;font-weight:500}
+.topic-head .chev{font-size:16px;color:var(--text-3);transition:transform .25s ease;flex-shrink:0}.topic.open .topic-head .chev{transform:rotate(180deg);color:var(--accent)}
+.topic-body{max-height:0;overflow:hidden;transition:max-height .32s ease}
+.tb-inner{padding:2px 14px 14px 35px}
+.tb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin:10px 0 6px;display:flex;align-items:center;gap:6px}
+.tb-label.logic{color:var(--accent)}.tb-label.logic i{font-size:13px}.tb-label.trap{color:var(--ita)}
+.subs{list-style:none;display:flex;flex-direction:column;gap:5px}
+.subs li{font-size:12.5px;color:var(--text-2);line-height:1.5;padding-left:16px;position:relative}
+.subs li::before{content:'';position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--border-2)}.subs li b{color:var(--text-1);font-weight:600}
+.logic-text{font-size:12.5px;color:#C8D4B8;line-height:1.65;background:var(--accent-glow);border-left:2px solid var(--accent);padding:9px 12px;border-radius:0 8px 8px 0}.logic-text b{color:var(--accent);font-weight:600}
+.trap-text{font-size:12.5px;color:#E6C4C4;line-height:1.6;background:var(--ita-bg);border-left:2px solid var(--ita);padding:9px 12px;border-radius:0 8px 8px 0;margin-top:8px}.trap-text b{color:var(--ita);font-weight:600}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:1rem}.tag{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;border:1px solid transparent}
+.res-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:1px solid var(--border)}
+.res-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3);text-decoration:none;padding:3px 10px;border:1px solid var(--border);border-radius:999px;transition:all .12s}.res-link:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+.blk1 .course-num{background:var(--c1-bg);color:var(--c1)}.blk1 .course-desc{border-color:var(--c1-bg2)}.blk1 .tag{background:var(--c1-bg);color:var(--c1);border-color:var(--c1-bg2)}.blk1 .topic-head .mk{color:var(--c1)}
+.blk2 .course-num{background:var(--c2-bg);color:var(--c2)}.blk2 .course-desc{border-color:var(--c2-bg2)}.blk2 .tag{background:var(--c2-bg);color:var(--c2);border-color:var(--c2-bg2)}.blk2 .topic-head .mk{color:var(--c2)}
+.blk3 .course-num{background:var(--c3-bg);color:var(--c3)}.blk3 .course-desc{border-color:var(--c3-bg2)}.blk3 .tag{background:var(--c3-bg);color:var(--c3);border-color:var(--c3-bg2)}.blk3 .topic-head .mk{color:var(--c3)}
+footer{text-align:center;padding:2.5rem 2rem;color:var(--text-3);font-size:12px;border-top:1px solid var(--border)}footer a{color:var(--text-2);text-decoration:none}
+@media(max-width:600px){.hero{padding:2.5rem 1.25rem 2rem}.wrap{padding:1.5rem 1.25rem 2rem}.course-header{flex-direction:column;gap:.7rem}.tb-inner{padding-left:20px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><i class="ti ti-stack-2"></i> stdy · trilha</div>
+  <nav class="tabs">
+    <a class="tab" href="trilha_ita.html">ITA</a>
+    <a class="tab" href="trilha_enem.html">ENEM</a>
+    <a class="tab active" href="trilha_redacao.html">Redação</a>
+    <a class="tab" href="trilha_bb.html">BB</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="hero-badge"><i class="ti ti-feather"></i> Redação · Dissertativo-argumentativo</div>
+  <h1>Os conceitos<br>da <span>redação</span></h1>
+  <p class="hero-sub">Mesmo molde no ENEM e na 2ª fase do ITA: defender uma tese com clareza e propor solução. Cada conceito abre com a lógica e a armadilha.</p>
+</header>
+
+<main class="wrap">
+
+  <div class="crosslink">
+    <i class="ti ti-arrows-shuffle"></i>
+    <p>Esta aba serve a dois exames de uma vez: a <strong>redação do ENEM</strong> (8/11, vale 1000 pts) e a <strong>redação dissertativa do ITA</strong> (Português, 23/10). A técnica é a mesma. A redação também é a base da prova de Português do <a href="trilha_ita.html">ITA</a> e da Língua Portuguesa do <a href="trilha_bb.html">BB</a>.</p>
+  </div>
+
+  <div class="howto">
+    <i class="ti ti-hand-finger"></i>
+    <span>Clique em cada conceito: bloco verde = <strong>como cravar</strong>; bloco vermelho = <strong>a armadilha</strong> que zera ou derruba.</span>
+  </div>
+
+  <!-- COMPETÊNCIAS -->
+  <section class="course-block blk1">
+    <div class="course-header">
+      <div class="course-num">Conceito 01</div>
+      <div>
+        <div class="course-name">As 5 competências (200 pts cada)</div>
+        <div class="course-meta"><span><i class="ti ti-scale"></i> A grade do corretor</span><span><i class="ti ti-target"></i> Não zere nenhuma</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">O corretor preenche uma grade de 5 competências. Escrever para a régua — e não "para impressionar" — é metade da nota.</p>
+      <div class="topics">
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">C1</span><span class="t-title">Domínio da norma culta</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">O que mede</div><ul class="subs"><li>Ortografia, pontuação, concordância, regência, crase</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Como cravar</div><p class="logic-text">Padrão de <b>economia de risco</b>: período curto e bem pontuado erra menos que frase ambiciosa. Você não ganha por complexidade, ganha por <b>ausência de erro</b>.</p>
+          <div class="tb-label trap"><i class="ti ti-alert-triangle"></i> Armadilha</div><p class="trap-text">Querer "escrever bonito". Vocabulário rebuscado mal usado derruba mais que ajuda.</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">C2</span><span class="t-title">Compreender o tema + repertório</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">O que mede</div><ul class="subs"><li>Não fugir ao tema; repertório sociocultural pertinente; manter o gênero</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Como cravar</div><p class="logic-text">Fórmula <b>referência + ponte</b>: cite a fonte e explique por que importa para este tema. Repertório solto não pontua; articulado vale a C2 inteira.</p>
+          <div class="tb-label trap"><i class="ti ti-alert-triangle"></i> Armadilha</div><p class="trap-text"><b>Fuga ao tema derruba a redação inteira.</b> Sublinhe a palavra-chave do tema e cheque cada parágrafo.</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">C3</span><span class="t-title">Selecionar e organizar argumentos</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">O que mede</div><ul class="subs"><li>Projeto de texto, progressão e autoria (defender, não só descrever)</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Como cravar</div><p class="logic-text">Pense como engenheiro de texto: <b>decida a tese antes</b> e dê a cada parágrafo um trabalho diferente. O corretor procura <b>progressão</b> — o texto avança, não anda em círculo. É a competência mais lógica das cinco.</p>
+          <div class="tb-label trap"><i class="ti ti-alert-triangle"></i> Armadilha</div><p class="trap-text">Dois desenvolvimentos intercambiáveis = falta progressão = C3 cai.</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">C4</span><span class="t-title">Coesão — conectar as partes</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">O que mede</div><ul class="subs"><li>Conectivos e referenciação (sem repetir palavras)</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Como cravar</div><p class="logic-text">Coesão é a <b>fiação</b> do texto. Padrão simples: comece cada parágrafo com um conectivo que sinaliza a relação. Tenha 10 conectivos variados na ponta da língua.</p>
+          <div class="tb-label trap"><i class="ti ti-alert-triangle"></i> Armadilha</div><p class="trap-text">Repetir o mesmo conectivo ou usar um que contraria a lógica (um "portanto" sem causa).</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">C5</span><span class="t-title">Proposta de intervenção (a mais decisiva)</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">Os 5 elementos</div><ul class="subs"><li><b>Agente</b> · <b>Ação</b> · <b>Modo/meio</b> · <b>Finalidade</b> · <b>Detalhamento</b></li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Como cravar</div><p class="logic-text">Onde mais gente perde nota = maior retorno. Monte como <b>checklist</b>: "O Estado (agente) deve ampliar campanhas (ação) via redes e escolas (meio), a fim de conscientizar (finalidade), com foco em jovens de 15–24 anos (detalhamento)." Cumpriu os 5 = C5 cheia.</p>
+          <div class="tb-label trap"><i class="ti ti-alert-triangle"></i> Armadilha</div><p class="trap-text">Proposta que <b>fere direitos humanos zera a redação</b>. Nada de "prender todos". E proposta vaga sem agente/meio perde quase tudo.</p>
+        </div></div></div>
+      </div>
+      <div class="tag-row"><span class="tag">5 Competências</span><span class="tag">Proposta de Intervenção</span><span class="tag">Direitos Humanos</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem" target="_blank"><i class="ti ti-external-link"></i>INEP — Cartilha da Redação</a></div>
+    </div>
+  </section>
+
+  <!-- ESTRUTURA -->
+  <section class="course-block blk2">
+    <div class="course-header">
+      <div class="course-num">Conceito 02</div>
+      <div>
+        <div class="course-name">A arquitetura — 4 parágrafos</div>
+        <div class="course-meta"><span><i class="ti ti-building"></i> Molde fixo, tema variável</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Decore a forma uma vez e libere a cabeça pro conteúdo. Cada desenvolvimento é um silogismo enxuto — afirmo, comprovo, concluo: a mesma estrutura de uma demonstração matemática.</p>
+      <div class="topics">
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">§1</span><span class="t-title">Introdução — contextualização + tese</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">A receita</div><ul class="subs"><li>Repertório de abertura → problema → tese com os 2 argumentos</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> A lógica</div><p class="logic-text">A introdução é um <b>mapa</b>: a "tese de dois braços" anuncia os dois desenvolvimentos e garante coerência. O corretor lê a intro e já vê que há projeto (C3).</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">§2/§3</span><span class="t-title">Desenvolvimentos — dois eixos distintos</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">A receita</div><ul class="subs"><li>Tópico frasal → repertório + ponte → arremate</li><li>Truque: pares de eixo (causa/consequência, econômico/social, indivíduo/coletivo)</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> A lógica</div><p class="logic-text">Os dois precisam atacar o tema por <b>ângulos diferentes</b> — é o que garante a progressão da C3. Decore 3–4 pares de eixo e encaixe qualquer tema neles.</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk">§4</span><span class="t-title">Conclusão = proposta de intervenção</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">A receita</div><ul class="subs"><li>Retoma a tese + aplica o checklist dos 5 elementos da C5</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> A lógica</div><p class="logic-text">A conclusão do ENEM não é resumo, é <b>solução</b>: dado o diagnóstico, qual a intervenção? É o parágrafo que mais separa 800 de 1000.</p>
+        </div></div></div>
+      </div>
+      <div class="tag-row"><span class="tag">Tese de 2 braços</span><span class="tag">Pares de eixo</span><span class="tag">Conclusão-solução</span></div>
+    </div>
+  </section>
+
+  <!-- REPERTÓRIO -->
+  <section class="course-block blk3">
+    <div class="course-header">
+      <div class="course-num">Conceito 03</div>
+      <div>
+        <div class="course-name">Repertório coringa</div>
+        <div class="course-meta"><span><i class="ti ti-cards"></i> Serve em quase todo tema</span><span><i class="ti ti-bookmark"></i> Decore ~8</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Um baralho pequeno de referências versáteis que você sabe encaixar vale mais que enciclopédia. Treine a "ponte" de cada uma.</p>
+      <div class="topics">
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk"><i class="ti ti-gavel"></i></span><span class="t-title">Leis e documentos</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">Coringas</div><ul class="subs"><li>Constituição de 1988; Declaração dos Direitos Humanos; ECA; LGPD</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Por que funciona</div><p class="logic-text">Repertório <b>mais seguro</b>: quase todo tema social toca um direito. Use o contraste "a Constituição garante X, mas a realidade mostra Y".</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk"><i class="ti ti-brain"></i></span><span class="t-title">Pensadores e conceitos</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">Coringas</div><ul class="subs"><li>Bauman (modernidade líquida); Arendt (banalidade do mal); Foucault (poder/vigilância)</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Por que funciona</div><p class="logic-text">Padrão <b>conceito + tradução</b>: não basta citar — explique em uma frase o que o conceito significa para o tema. Citação sem explicação não conta.</p>
+        </div></div></div>
+        <div class="topic"><button class="topic-head" onclick="tg(this)"><span class="mk"><i class="ti ti-chart-dots"></i></span><span class="t-title">Dados e instituições</span><i class="ti ti-chevron-down chev"></i></button><div class="topic-body"><div class="tb-inner">
+          <div class="tb-label">Coringas</div><ul class="subs"><li>IBGE, IPEA, ONU, OMS como fontes</li></ul>
+          <div class="tb-label logic"><i class="ti ti-bulb"></i> Por que funciona</div><p class="logic-text">Dá <b>peso de realidade</b> — e é o seu terreno de FP&A. Cite a instituição (credibilidade) mesmo com número aproximado; a banca cobra pertinência, não precisão estatística.</p>
+        </div></div></div>
+      </div>
+      <div class="tag-row"><span class="tag">Constituição</span><span class="tag">Bauman</span><span class="tag">IBGE / ONU</span><span class="tag">Repertório produtivo</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Biblioteca stdy · Trilha Redação · Conceitos · Estrutura · Repertório — <a href="trilha_bb.html">ir para BB →</a></footer>
+
+<script>
+function tg(btn){var t=btn.parentElement,b=btn.nextElementSibling;if(t.classList.contains('open')){b.style.maxHeight=null;t.classList.remove('open');}else{t.classList.add('open');b.style.maxHeight=b.scrollHeight+'px';}}
+</script>
+</body>
+</html>

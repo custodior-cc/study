@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BB — Trilha stdy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root{--font-display:'Syne',sans-serif;--font-sans:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;--bg:#0C0F0A;--bg-3:#1C2018;--surface:#1E2219;--surface-2:#252B1F;--border:rgba(160,200,80,.12);--border-2:rgba(160,200,80,.22);--text-1:#E8EDE0;--text-2:#9AA88A;--text-3:#5A6650;--accent:#8FC43A;--accent-dim:rgba(143,196,58,.15);--accent-glow:rgba(143,196,58,.08);--bb:#F0C84A;--bb-bg:rgba(240,200,74,.12);--bb-bg2:rgba(240,200,74,.3);--c1:#A0D8F0;--c1-bg:rgba(160,216,240,.1);--c1-bg2:rgba(160,216,240,.3);--c2:#A0F0B0;--c2-bg:rgba(160,240,176,.1);--c2-bg2:rgba(160,240,176,.3);--c3:#F0C080;--c3-bg:rgba(240,192,128,.1);--c3-bg2:rgba(240,192,128,.3);--c4:#D4A0F0;--c4-bg:rgba(212,160,240,.1);--c4-bg2:rgba(212,160,240,.3);--radius:10px;--radius-lg:16px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text-1);min-height:100vh;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(12,15,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--text-2);letter-spacing:.04em;display:flex;align-items:center;gap:7px}.brand i{color:var(--accent)}
+.tabs{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tab{font-family:var(--font-display);font-size:12.5px;font-weight:600;color:var(--text-2);text-decoration:none;padding:7px 15px;border-radius:999px;border:1px solid transparent;transition:all .15s}
+.tab:hover{color:var(--text-1);background:var(--surface-2)}.tab.active{color:var(--accent);background:var(--accent-dim);border-color:rgba(143,196,58,.35)}
+.hero{position:relative;padding:3.5rem 2rem 2.5rem;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% -20%,rgba(240,200,74,.10) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--bb-bg);border:1px solid var(--bb-bg2);color:var(--bb);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:1.25rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:.85rem}.hero h1 span{color:var(--bb)}
+.hero-sub{font-size:14.5px;color:var(--text-2);max-width:600px;margin:0 auto;line-height:1.6}
+.warn{max-width:920px;margin:1.75rem auto 0;padding:0 2rem}
+.warn-inner{background:var(--bb-bg);border:1px solid var(--bb-bg2);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;display:flex;align-items:flex-start;gap:12px}
+.warn-inner i{color:var(--bb);font-size:20px;margin-top:1px;flex-shrink:0}.warn-inner p{font-size:12.5px;color:var(--text-2);line-height:1.6}.warn-inner strong{color:var(--text-1);font-weight:600}
+.jump{max-width:920px;margin:1.5rem auto 0;padding:0 2rem;display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.chip{font-size:12px;color:var(--text-2);text-decoration:none;padding:5px 13px;border:1px solid var(--border);border-radius:999px;transition:all .15s}.chip:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+.wrap{max-width:920px;margin:0 auto;padding:2rem 2rem 3rem}
+.crosslink{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;margin-bottom:2.25rem;display:flex;align-items:flex-start;gap:12px}
+.crosslink i{color:var(--accent);font-size:19px;margin-top:1px;flex-shrink:0}.crosslink p{font-size:12.5px;color:var(--text-2);line-height:1.6}.crosslink a{color:var(--accent);text-decoration:none;font-weight:600}.crosslink a:hover{text-decoration:underline}
+.course-block{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);margin-bottom:2rem;scroll-margin-top:75px}
+.course-header{padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem}
+.course-num{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.course-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-1);margin-bottom:3px}
+.course-meta{font-size:12px;color:var(--text-3);display:flex;gap:12px;flex-wrap:wrap}.course-meta span{display:flex;align-items:center;gap:4px}
+.course-body{padding:1.25rem 1.5rem}
+.course-desc{font-size:12.5px;color:var(--text-2);line-height:1.6;margin-bottom:1.1rem;border-left:2px solid var(--border-2);padding-left:.875rem}
+.cat-group{margin-bottom:1.1rem}.cat-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:.5rem}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+.file-pill{display:flex;align-items:center;gap:7px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--text-2);transition:border-color .15s,background .15s}
+.file-pill:hover{border-color:var(--border-2);background:var(--surface-2);color:var(--text-1)}.file-pill i{font-size:14px;flex-shrink:0}.file-pill span{line-height:1.35}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:1rem}.tag{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;border:1px solid transparent}
+.res-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:1px solid var(--border)}
+.res-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3);text-decoration:none;padding:3px 10px;border:1px solid var(--border);border-radius:999px;transition:all .12s}.res-link:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+.blk0 .course-num{background:var(--bb-bg);color:var(--bb)}.blk0 .course-desc{border-color:var(--bb-bg2)}.blk0 .tag{background:var(--bb-bg);color:var(--bb);border-color:var(--bb-bg2)}.blk0 .file-pill i{color:var(--bb)}
+.blk1 .course-num{background:var(--c1-bg);color:var(--c1)}.blk1 .course-desc{border-color:var(--c1-bg2)}.blk1 .tag{background:var(--c1-bg);color:var(--c1);border-color:var(--c1-bg2)}.blk1 .file-pill i{color:var(--c1)}
+.blk2 .course-num{background:var(--c2-bg);color:var(--c2)}.blk2 .course-desc{border-color:var(--c2-bg2)}.blk2 .tag{background:var(--c2-bg);color:var(--c2);border-color:var(--c2-bg2)}.blk2 .file-pill i{color:var(--c2)}
+.blk3 .course-num{background:var(--c3-bg);color:var(--c3)}.blk3 .course-desc{border-color:var(--c3-bg2)}.blk3 .tag{background:var(--c3-bg);color:var(--c3);border-color:var(--c3-bg2)}.blk3 .file-pill i{color:var(--c3)}
+.blk4 .course-num{background:var(--c4-bg);color:var(--c4)}.blk4 .course-desc{border-color:var(--c4-bg2)}.blk4 .tag{background:var(--c4-bg);color:var(--c4);border-color:var(--c4-bg2)}.blk4 .file-pill i{color:var(--c4)}
+footer{text-align:center;padding:2.5rem 2rem;color:var(--text-3);font-size:12px;border-top:1px solid var(--border)}footer a{color:var(--text-2);text-decoration:none}
+@media(max-width:600px){.hero{padding:2.5rem 1.25rem 2rem}.warn,.jump{padding:0 1.25rem}.wrap{padding:1.5rem 1.25rem 2rem}.course-header{flex-direction:column;gap:.7rem}.cat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><i class="ti ti-stack-2"></i> stdy · trilha</div>
+  <nav class="tabs">
+    <a class="tab" href="trilha_ita.html">ITA</a>
+    <a class="tab" href="trilha_enem.html">ENEM</a>
+    <a class="tab" href="trilha_redacao.html">Redação</a>
+    <a class="tab active" href="trilha_bb.html">BB</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="hero-badge"><i class="ti ti-building-bank"></i> Concurso Banco do Brasil · Escriturário</div>
+  <h1>Tudo o que cai no<br><span>Edital do BB</span></h1>
+  <p class="hero-sub">Conhecimentos Básicos (comuns a todos) + Conhecimentos Específicos (variam por cargo: Agente Comercial ou Agente de Tecnologia). Prova objetiva + redação/discursiva.</p>
+</header>
+
+<div class="warn">
+  <div class="warn-inner">
+    <i class="ti ti-alert-triangle"></i>
+    <p><strong>Edital de 2026 ainda não publicado.</strong> A banca organizadora também não foi definida. Este conteúdo segue o <strong>programa recorrente dos últimos editais de Escriturário</strong> (base 2021–2023). Quando o edital sair, o programa exato — e a banca — podem mudar; atualizamos os tópicos aqui no mesmo dia.</p>
+  </div>
+</div>
+
+<div class="jump">
+  <a class="chip" href="#bas"><i class="ti ti-abc"></i> Básicos</a>
+  <a class="chip" href="#banc"><i class="ti ti-cash"></i> Bancários</a>
+  <a class="chip" href="#vend"><i class="ti ti-businessplan"></i> Vendas</a>
+  <a class="chip" href="#info"><i class="ti ti-device-desktop"></i> Informática</a>
+</div>
+
+<main class="wrap">
+
+  <div class="crosslink">
+    <i class="ti ti-arrows-shuffle"></i>
+    <p>O BB se apoia no que você já constrói: a Matemática e o Raciocínio Lógico vêm da sua base do <a href="trilha_ita.html">ITA</a>; a Língua Portuguesa e a redação dialogam com a aba <a href="trilha_redacao.html">Redação</a>. O que é exclusivo daqui são os blocos bancários, de vendas e de informática.</p>
+  </div>
+
+  <!-- BÁSICOS -->
+  <section id="bas" class="course-block blk1">
+    <div class="course-header">
+      <div class="course-num">Bloco 01</div>
+      <div>
+        <div class="course-name">Conhecimentos Básicos</div>
+        <div class="course-meta"><span><i class="ti ti-checkbox"></i> Comuns a todos os cargos</span><span><i class="ti ti-link"></i> Você já tem boa parte</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Aqui você larga na frente: matemática e raciocínio lógico são trivial pra quem treinou ITA, e português/redação saem da aba de Redação. O esforço novo é mínimo.</p>
+      <div class="cat-group"><div class="cat-label">Língua Portuguesa</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Interpretação e tipologia textual</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ortografia, acentuação e crase</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Concordância e regência</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Coesão, coerência e reescrita</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Matemática & Raciocínio Lógico</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Porcentagem, razão e proporção</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Regra de três e juros (simples e compostos)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Lógica proposicional e tabelas-verdade</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Análise combinatória e probabilidade</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Sequências e problemas de raciocínio</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Língua Inglesa (quando exigida)</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Interpretação de texto</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Vocabulário e estruturas básicas</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Português</span><span class="tag">RLM</span><span class="tag">Matemática Financeira</span><span class="tag">Inglês</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.tecconcursos.com.br" target="_blank"><i class="ti ti-external-link"></i>Tec Concursos — Questões</a><a class="res-link" href="https://www.qconcursos.com/concursos/banco-do-brasil" target="_blank"><i class="ti ti-external-link"></i>Qconcursos — BB</a></div>
+    </div>
+  </section>
+
+  <!-- BANCÁRIOS -->
+  <section id="banc" class="course-block blk0">
+    <div class="course-header">
+      <div class="course-num">Bloco 02</div>
+      <div>
+        <div class="course-name">Conhecimentos Bancários & Mercado Financeiro</div>
+        <div class="course-meta"><span><i class="ti ti-cash"></i> O coração do concurso</span><span><i class="ti ti-bookmark"></i> Decoreba pós-edital</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Este é o bloco exclusivo e mais "memorizável" — exatamente o que você deixa pras últimas semanas, quando o edital sair. Como você vem de FP&A, boa parte do vocabulário já é familiar.</p>
+      <div class="cat-group"><div class="cat-label">Sistema Financeiro Nacional</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>CMN, BACEN, CVM, SUSEP — papéis</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Instituições financeiras e suas funções</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Política monetária e taxa Selic</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Produtos e serviços</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Contas, cartões e meios de pagamento (Pix)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Crédito, financiamento e crédito rural</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Investimentos: poupança, CDB, fundos, Tesouro</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Câmbio, seguros, previdência e capitalização</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Regulação & compliance</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Prevenção à lavagem de dinheiro (PLD)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Autorregulação bancária e Código de Defesa do Consumidor</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Atualidades do mercado financeiro</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">SFN</span><span class="tag">BACEN</span><span class="tag">Produtos Bancários</span><span class="tag">PLD</span><span class="tag">Pix</span></div>
+      <div class="res-row"><a class="res-link" href="https://blog.grancursosonline.com.br/concurso-banco-do-brasil/" target="_blank"><i class="ti ti-external-link"></i>Gran — Conteúdo BB</a><a class="res-link" href="https://www.bcb.gov.br" target="_blank"><i class="ti ti-external-link"></i>Banco Central — fonte oficial</a></div>
+    </div>
+  </section>
+
+  <!-- VENDAS -->
+  <section id="vend" class="course-block blk2">
+    <div class="course-header">
+      <div class="course-num">Bloco 03</div>
+      <div>
+        <div class="course-name">Vendas, Negociação & Atendimento</div>
+        <div class="course-meta"><span><i class="ti ti-businessplan"></i> Específico — Agente Comercial</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Bloco de conhecimentos específicos do cargo comercial. Conceitos de relacionamento com o cliente e técnicas de venda — pouca conta, muita aplicação de princípio.</p>
+      <div class="cat-group"><div class="cat-label">Técnicas e relacionamento</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Etapas da venda e funil comercial</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Negociação e contorno de objeções</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Marketing de relacionamento e CRM</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Qualidade no atendimento e fidelização</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ética, Código de Defesa do Consumidor</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Vendas</span><span class="tag">Negociação</span><span class="tag">CRM</span><span class="tag">Atendimento</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.tecconcursos.com.br" target="_blank"><i class="ti ti-external-link"></i>Tec Concursos</a></div>
+    </div>
+  </section>
+
+  <!-- INFORMÁTICA -->
+  <section id="info" class="course-block blk3">
+    <div class="course-header">
+      <div class="course-num">Bloco 04</div>
+      <div>
+        <div class="course-name">Informática & Tecnologia</div>
+        <div class="course-meta"><span><i class="ti ti-device-desktop"></i> Básico p/ Comercial · aprofundado p/ Tecnologia</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Para Agente Comercial, é informática de usuário. Para Agente de Tecnologia, expande para programação, banco de dados e segurança — defina o cargo antes de decidir a profundidade.</p>
+      <div class="cat-group"><div class="cat-label">Informática básica (todos)</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Windows, pacote Office e navegadores</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Segurança da informação e backup</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Redes, internet e correio eletrônico</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>LGPD — proteção de dados</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Específico — Agente de Tecnologia</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Lógica de programação e algoritmos</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Banco de dados e SQL</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Engenharia de software e metodologias ágeis</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Segurança cibernética e cloud</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Office</span><span class="tag">Segurança</span><span class="tag">LGPD</span><span class="tag">SQL</span><span class="tag">Ágil</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.tecconcursos.com.br" target="_blank"><i class="ti ti-external-link"></i>Tec Concursos</a><a class="res-link" href="https://www.estrategiaconcursos.com.br/blog/concurso-banco-do-brasil-ultimas-noticias/" target="_blank"><i class="ti ti-external-link"></i>Estratégia — notícias do edital</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Biblioteca stdy · Trilha BB · Programa recorrente de Escriturário (a confirmar no edital 2026) — <a href="trilha_ita.html">voltar ao ITA →</a></footer>
+</body>
+</html>

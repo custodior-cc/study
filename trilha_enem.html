@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENEM — Trilha stdy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root{--font-display:'Syne',sans-serif;--font-sans:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;--bg:#0C0F0A;--bg-3:#1C2018;--surface:#1E2219;--surface-2:#252B1F;--border:rgba(160,200,80,.12);--border-2:rgba(160,200,80,.22);--text-1:#E8EDE0;--text-2:#9AA88A;--text-3:#5A6650;--accent:#8FC43A;--accent-dim:rgba(143,196,58,.15);--accent-glow:rgba(143,196,58,.08);--c1:#A0D8F0;--c1-bg:rgba(160,216,240,.1);--c1-bg2:rgba(160,216,240,.3);--c2:#F0C080;--c2-bg:rgba(240,192,128,.1);--c2-bg2:rgba(240,192,128,.3);--c3:#A0F0B0;--c3-bg:rgba(160,240,176,.1);--c3-bg2:rgba(160,240,176,.3);--radius:10px;--radius-lg:16px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text-1);min-height:100vh;-webkit-font-smoothing:antialiased}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(12,15,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--text-2);letter-spacing:.04em;display:flex;align-items:center;gap:7px}.brand i{color:var(--accent)}
+.tabs{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tab{font-family:var(--font-display);font-size:12.5px;font-weight:600;color:var(--text-2);text-decoration:none;padding:7px 15px;border-radius:999px;border:1px solid transparent;transition:all .15s}
+.tab:hover{color:var(--text-1);background:var(--surface-2)}.tab.active{color:var(--accent);background:var(--accent-dim);border-color:rgba(143,196,58,.35)}
+.hero{position:relative;padding:3.5rem 2rem 2.5rem;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% -20%,rgba(160,216,240,.12) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--c1-bg);border:1px solid var(--c1-bg2);color:var(--c1);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:1.25rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:.85rem}.hero h1 span{color:var(--c1)}
+.hero-sub{font-size:14.5px;color:var(--text-2);max-width:620px;margin:0 auto;line-height:1.6}
+.jump{max-width:920px;margin:1.75rem auto 0;padding:0 2rem;display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.chip{font-size:12px;color:var(--text-2);text-decoration:none;padding:5px 13px;border:1px solid var(--border);border-radius:999px;transition:all .15s}.chip:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+.wrap{max-width:920px;margin:0 auto;padding:2rem 2rem 3rem}
+.crosslink{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;margin-bottom:2.25rem;display:flex;align-items:flex-start;gap:12px}
+.crosslink i{color:var(--accent);font-size:19px;margin-top:1px;flex-shrink:0}.crosslink p{font-size:12.5px;color:var(--text-2);line-height:1.6}.crosslink a{color:var(--accent);text-decoration:none;font-weight:600}.crosslink a:hover{text-decoration:underline}
+.course-block{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);margin-bottom:2rem;scroll-margin-top:75px}
+.course-header{padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem}
+.course-num{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.course-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-1);margin-bottom:3px}
+.course-meta{font-size:12px;color:var(--text-3);display:flex;gap:12px;flex-wrap:wrap}.course-meta span{display:flex;align-items:center;gap:4px}
+.course-body{padding:1.25rem 1.5rem}
+.course-desc{font-size:12.5px;color:var(--text-2);line-height:1.6;margin-bottom:1.1rem;border-left:2px solid var(--border-2);padding-left:.875rem}
+.cat-group{margin-bottom:1.1rem}.cat-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:.5rem}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+.file-pill{display:flex;align-items:center;gap:7px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--text-2);transition:border-color .15s,background .15s}
+.file-pill:hover{border-color:var(--border-2);background:var(--surface-2);color:var(--text-1)}.file-pill i{font-size:14px;flex-shrink:0}.file-pill span{line-height:1.35}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:1rem}.tag{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;border:1px solid transparent}
+.res-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:1px solid var(--border)}
+.res-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3);text-decoration:none;padding:3px 10px;border:1px solid var(--border);border-radius:999px;transition:all .12s}.res-link:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+.blk1 .course-num{background:var(--c1-bg);color:var(--c1)}.blk1 .course-desc{border-color:var(--c1-bg2)}.blk1 .tag{background:var(--c1-bg);color:var(--c1);border-color:var(--c1-bg2)}.blk1 .file-pill i{color:var(--c1)}
+.blk2 .course-num{background:var(--c2-bg);color:var(--c2)}.blk2 .course-desc{border-color:var(--c2-bg2)}.blk2 .tag{background:var(--c2-bg);color:var(--c2);border-color:var(--c2-bg2)}.blk2 .file-pill i{color:var(--c2)}
+.blk3 .course-num{background:var(--c3-bg);color:var(--c3)}.blk3 .course-desc{border-color:var(--c3-bg2)}.blk3 .tag{background:var(--c3-bg);color:var(--c3);border-color:var(--c3-bg2)}.blk3 .file-pill i{color:var(--c3)}
+footer{text-align:center;padding:2.5rem 2rem;color:var(--text-3);font-size:12px;border-top:1px solid var(--border)}footer a{color:var(--text-2);text-decoration:none}
+@media(max-width:600px){.hero{padding:2.5rem 1.25rem 2rem}.wrap{padding:1.5rem 1.25rem 2rem}.course-header{flex-direction:column;gap:.7rem}.cat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><i class="ti ti-stack-2"></i> stdy · trilha</div>
+  <nav class="tabs">
+    <a class="tab" href="trilha_ita.html">ITA</a>
+    <a class="tab active" href="trilha_enem.html">ENEM</a>
+    <a class="tab" href="trilha_redacao.html">Redação</a>
+    <a class="tab" href="trilha_bb.html">BB</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="hero-badge"><i class="ti ti-school"></i> ENEM · Áreas complementares</div>
+  <h1>Linguagens, Humanas &<br><span>Ciências da Natureza</span></h1>
+  <p class="hero-sub">O que não vem da matemática do ITA. Provas em 8 e 15/11: o 1º dia traz Linguagens, Humanas e a Redação; o 2º traz Matemática e Ciências da Natureza.</p>
+</header>
+
+<div class="jump">
+  <a class="chip" href="#ling"><i class="ti ti-abc"></i> Linguagens</a>
+  <a class="chip" href="#hum"><i class="ti ti-world"></i> Humanas</a>
+  <a class="chip" href="#nat"><i class="ti ti-leaf"></i> Ciências da Natureza</a>
+</div>
+
+<main class="wrap">
+
+  <div class="crosslink">
+    <i class="ti ti-arrows-shuffle"></i>
+    <p>A Matemática do ENEM já está coberta na aba <a href="trilha_ita.html">ITA</a> (com folga). A <a href="trilha_redacao.html">Redação</a> tem aba própria. Aqui mora o "resto": as três áreas que precisam de revisão separada. Física e Química aparecem aqui em versão contextualizada — mais leve que a do ITA.</p>
+  </div>
+
+  <!-- LINGUAGENS -->
+  <section id="ling" class="course-block blk1">
+    <div class="course-header">
+      <div class="course-num">Área 01</div>
+      <div>
+        <div class="course-name">Linguagens, Códigos e suas Tecnologias</div>
+        <div class="course-meta"><span><i class="ti ti-abc"></i> 1º dia</span><span><i class="ti ti-books"></i> 45 questões</span><span><i class="ti ti-eye"></i> Interpretação acima de tudo</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">O ENEM raramente cobra teoria pura — cobra <strong>interpretar</strong>. A maior parte das questões é "leia este texto e...". Literatura entra por estilo de época aplicado a um trecho, não por decoreba de datas.</p>
+      <div class="cat-group"><div class="cat-label">Língua portuguesa & texto</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Interpretação e gêneros textuais</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Funções da linguagem</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Figuras de linguagem</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Variação linguística e preconceito linguístico</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Coesão, coerência e intertextualidade</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Literatura</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Quinhentismo, Barroco e Arcadismo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Romantismo e Realismo/Naturalismo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Parnasianismo e Simbolismo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Pré-Modernismo e Modernismo (3 fases)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Literatura contemporânea</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Outras linguagens</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Inglês / Espanhol (interpretação)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Arte: movimentos e leitura de imagem</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Educação física e corpo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Tecnologias da informação e comunicação</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Interpretação</span><span class="tag">Literatura</span><span class="tag">Variação Linguística</span><span class="tag">Língua Estrangeira</span></div>
+      <div class="res-row"><a class="res-link" href="https://vestibular.brasilescola.uol.com.br/enem/" target="_blank"><i class="ti ti-external-link"></i>Brasil Escola — ENEM</a><a class="res-link" href="https://www.youtube.com/@curiosamente" target="_blank"><i class="ti ti-external-link"></i>Literatura — YT</a></div>
+    </div>
+  </section>
+
+  <!-- HUMANAS -->
+  <section id="hum" class="course-block blk2">
+    <div class="course-header">
+      <div class="course-num">Área 02</div>
+      <div>
+        <div class="course-name">Ciências Humanas e suas Tecnologias</div>
+        <div class="course-meta"><span><i class="ti ti-world"></i> 1º dia</span><span><i class="ti ti-books"></i> 45 questões</span><span><i class="ti ti-message"></i> Atualidades pesam</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Humanas no ENEM gira em torno de <strong>cidadania, direitos e atualidade</strong>. História e Geografia do Brasil são as mais frequentes; Filosofia e Sociologia entram via conceito aplicado a um caso real.</p>
+      <div class="cat-group"><div class="cat-label">História</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Brasil Colônia, Império e República</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Era Vargas e Ditadura Militar</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Redemocratização e Brasil contemporâneo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Guerras Mundiais, Guerra Fria e globalização</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Geografia</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Geografia física e questão ambiental</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Urbanização e questão agrária</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Geopolítica e globalização</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Demografia e movimentos populacionais</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Filosofia & sociologia</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Filosofia antiga e o nascimento da política</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ética, contratualismo e Iluminismo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Clássicos da sociologia: Marx, Weber, Durkheim</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Cultura, trabalho, cidadania e movimentos sociais</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">História do Brasil</span><span class="tag">Geopolítica</span><span class="tag">Sociologia</span><span class="tag">Cidadania</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.youtube.com/@DebatedoresHistoria" target="_blank"><i class="ti ti-external-link"></i>História — YT</a><a class="res-link" href="https://vestibular.brasilescola.uol.com.br/enem/" target="_blank"><i class="ti ti-external-link"></i>Brasil Escola</a></div>
+    </div>
+  </section>
+
+  <!-- NATUREZA -->
+  <section id="nat" class="course-block blk3">
+    <div class="course-header">
+      <div class="course-num">Área 03</div>
+      <div>
+        <div class="course-name">Ciências da Natureza e suas Tecnologias</div>
+        <div class="course-meta"><span><i class="ti ti-leaf"></i> 2º dia (com Matemática)</span><span><i class="ti ti-books"></i> 45 questões</span><span><i class="ti ti-flask"></i> Física, Química e Biologia</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Física e Química você já estuda fundo pelo <a href="trilha_ita.html" style="color:var(--c3)">ITA</a> — aqui é nível mais leve e contextualizado. A <strong>Biologia é a verdadeira novidade</strong>: não aparece em nenhum outro arquivo da trilha.</p>
+      <div class="cat-group"><div class="cat-label">Biologia (exclusiva do ENEM na trilha)</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Citologia e bioquímica celular</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Genética e biotecnologia</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Evolução</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ecologia e meio ambiente</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Fisiologia humana e saúde</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Botânica e zoologia (noções)</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Física (contextualizada)</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Mecânica e energia no cotidiano</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Eletricidade e consumo (kWh)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ondas, som e calor</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Química (cotidiano & ambiental)</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Estequiometria e soluções aplicadas</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Química orgânica do dia a dia</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Química ambiental (poluição, ciclos)</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Biologia</span><span class="tag">Genética</span><span class="tag">Ecologia</span><span class="tag">Física aplicada</span><span class="tag">Química ambiental</span></div>
+      <div class="res-row"><a class="res-link" href="https://pt.khanacademy.org/science/biology" target="_blank"><i class="ti ti-external-link"></i>Khan — Biologia</a><a class="res-link" href="https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem" target="_blank"><i class="ti ti-external-link"></i>INEP — Provas anteriores</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Biblioteca stdy · Trilha ENEM · Linguagens · Humanas · Ciências da Natureza — <a href="trilha_redacao.html">ir para Redação →</a></footer>
+</body>
+</html>

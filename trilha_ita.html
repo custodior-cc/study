@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITA — Trilha stdy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root{
+  --font-display:'Syne',sans-serif;--font-sans:'DM Sans',sans-serif;--font-mono:'DM Mono',monospace;
+  --bg:#0C0F0A;--bg-3:#1C2018;--surface:#1E2219;--surface-2:#252B1F;
+  --border:rgba(160,200,80,.12);--border-2:rgba(160,200,80,.22);
+  --text-1:#E8EDE0;--text-2:#9AA88A;--text-3:#5A6650;
+  --accent:#8FC43A;--accent-dim:rgba(143,196,58,.15);--accent-glow:rgba(143,196,58,.08);
+  --ita:#E05252;--ita-bg:rgba(224,82,82,.12);
+  --c1:#A0D8F0;--c1-bg:rgba(160,216,240,.1);--c1-bg2:rgba(160,216,240,.3);
+  --c2:#F0C080;--c2-bg:rgba(240,192,128,.1);--c2-bg2:rgba(240,192,128,.3);
+  --c3:#A0F0B0;--c3-bg:rgba(160,240,176,.1);--c3-bg2:rgba(160,240,176,.3);
+  --c4:#D4A0F0;--c4-bg:rgba(212,160,240,.1);--c4-bg2:rgba(212,160,240,.3);
+  --radius:10px;--radius-lg:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text-1);min-height:100vh;-webkit-font-smoothing:antialiased}
+/* TABS */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(12,15,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.7rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--text-2);letter-spacing:.04em;display:flex;align-items:center;gap:7px}
+.brand i{color:var(--accent)}
+.tabs{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+.tab{font-family:var(--font-display);font-size:12.5px;font-weight:600;letter-spacing:.02em;color:var(--text-2);text-decoration:none;padding:7px 15px;border-radius:999px;border:1px solid transparent;transition:all .15s}
+.tab:hover{color:var(--text-1);background:var(--surface-2)}
+.tab.active{color:var(--accent);background:var(--accent-dim);border-color:rgba(143,196,58,.35)}
+/* HERO */
+.hero{position:relative;padding:3.5rem 2rem 2.5rem;text-align:center;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% -20%,rgba(143,196,58,.12) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid rgba(143,196,58,.3);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:1.25rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,5.5vw,3.4rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:.85rem}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:14.5px;color:var(--text-2);max-width:600px;margin:0 auto;line-height:1.6}
+/* JUMP CHIPS */
+.jump{max-width:920px;margin:1.75rem auto 0;padding:0 2rem;display:flex;gap:7px;flex-wrap:wrap;justify-content:center}
+.chip{font-size:12px;color:var(--text-2);text-decoration:none;padding:5px 13px;border:1px solid var(--border);border-radius:999px;transition:all .15s}
+.chip:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+/* SECTION */
+.wrap{max-width:920px;margin:0 auto;padding:2rem 2rem 3rem}
+.crosslink{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem 1.4rem;margin-bottom:2.25rem;display:flex;align-items:flex-start;gap:12px}
+.crosslink i{color:var(--accent);font-size:19px;margin-top:1px;flex-shrink:0}
+.crosslink p{font-size:12.5px;color:var(--text-2);line-height:1.6}
+.crosslink a{color:var(--accent);text-decoration:none;font-weight:600}
+.crosslink a:hover{text-decoration:underline}
+.course-block{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);margin-bottom:2rem;scroll-margin-top:75px}
+.course-header{padding:1.4rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:1rem}
+.course-num{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;white-space:nowrap;margin-top:2px}
+.course-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text-1);margin-bottom:3px}
+.course-meta{font-size:12px;color:var(--text-3);display:flex;gap:12px;flex-wrap:wrap}
+.course-meta span{display:flex;align-items:center;gap:4px}
+.course-body{padding:1.25rem 1.5rem}
+.course-desc{font-size:12.5px;color:var(--text-2);line-height:1.6;margin-bottom:1.1rem;border-left:2px solid var(--border-2);padding-left:.875rem}
+.cat-group{margin-bottom:1.1rem}
+.cat-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:.5rem}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+.file-pill{display:flex;align-items:center;gap:7px;background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:12px;color:var(--text-2);transition:border-color .15s,background .15s}
+.file-pill:hover{border-color:var(--border-2);background:var(--surface-2);color:var(--text-1)}
+.file-pill i{font-size:14px;flex-shrink:0}
+.file-pill span{line-height:1.35}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:1rem}
+.tag{font-size:11px;padding:3px 10px;border-radius:999px;font-weight:500;border:1px solid transparent}
+.res-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:.875rem;padding-top:.875rem;border-top:1px solid var(--border)}
+.res-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--text-3);text-decoration:none;padding:3px 10px;border:1px solid var(--border);border-radius:999px;transition:all .12s}
+.res-link:hover{color:var(--accent);border-color:rgba(143,196,58,.4)}
+.blk1 .course-num{background:var(--c1-bg);color:var(--c1)}.blk1 .course-desc{border-color:var(--c1-bg2)}.blk1 .tag{background:var(--c1-bg);color:var(--c1);border-color:var(--c1-bg2)}.blk1 .file-pill i{color:var(--c1)}
+.blk2 .course-num{background:var(--c2-bg);color:var(--c2)}.blk2 .course-desc{border-color:var(--c2-bg2)}.blk2 .tag{background:var(--c2-bg);color:var(--c2);border-color:var(--c2-bg2)}.blk2 .file-pill i{color:var(--c2)}
+.blk3 .course-num{background:var(--c3-bg);color:var(--c3)}.blk3 .course-desc{border-color:var(--c3-bg2)}.blk3 .tag{background:var(--c3-bg);color:var(--c3);border-color:var(--c3-bg2)}.blk3 .file-pill i{color:var(--c3)}
+.blk4 .course-num{background:var(--c4-bg);color:var(--c4)}.blk4 .course-desc{border-color:var(--c4-bg2)}.blk4 .tag{background:var(--c4-bg);color:var(--c4);border-color:var(--c4-bg2)}.blk4 .file-pill i{color:var(--c4)}
+footer{text-align:center;padding:2.5rem 2rem;color:var(--text-3);font-size:12px;border-top:1px solid var(--border)}
+footer a{color:var(--text-2);text-decoration:none}
+@media(max-width:600px){.hero{padding:2.5rem 1.25rem 2rem}.wrap{padding:1.5rem 1.25rem 2rem}.course-header{flex-direction:column;gap:.7rem}.cat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><i class="ti ti-stack-2"></i> stdy · trilha</div>
+  <nav class="tabs">
+    <a class="tab" href="index.html">Início</a>
+    <a class="tab active" href="trilha_ita.html">ITA</a>
+    <a class="tab" href="trilha_enem.html">ENEM</a>
+    <a class="tab" href="trilha_redacao.html">Redação</a>
+    <a class="tab" href="trilha_bb.html">BB</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="hero-badge"><i class="ti ti-flame"></i> Vestibular ITA · Nível avançado</div>
+  <h1>Matemática, Física,<br>Química & <span>Inglês</span></h1>
+  <p class="hero-sub">Os quatro pilares do Exame de Escolaridade. Na média da 1ª fase, Matemática, Física e Química pesam igual — Inglês exige nota mínima. Na 2ª fase, tudo é dissertativo.</p>
+</header>
+
+<div class="jump">
+  <a class="chip" href="#mat"><i class="ti ti-math"></i> Matemática</a>
+  <a class="chip" href="#fis"><i class="ti ti-atom-2"></i> Física</a>
+  <a class="chip" href="#qui"><i class="ti ti-flask"></i> Química</a>
+  <a class="chip" href="#ing"><i class="ti ti-language"></i> Inglês</a>
+</div>
+
+<main class="wrap">
+
+  <div class="crosslink">
+    <i class="ti ti-arrows-shuffle"></i>
+    <p>Este arquivo conversa com os outros: a <a href="trilha_redacao.html">Redação</a> aqui vira a redação dissertativa da 2ª fase (Português, 23/10); o conteúdo de Física, Química e Ciências aparece também, em nível contextualizado, no <a href="trilha_enem.html">ENEM</a>; e a matemática financeira reaparece no <a href="trilha_bb.html">BB</a>. Use as abas no topo para navegar.</p>
+  </div>
+
+  <!-- MATEMÁTICA -->
+  <section id="mat" class="course-block blk1">
+    <div class="course-header">
+      <div class="course-num">Matéria 01</div>
+      <div>
+        <div class="course-name">Matemática</div>
+        <div class="course-meta"><span><i class="ti ti-math"></i> Maior peso</span><span><i class="ti ti-books"></i> 5 frentes</span><span><i class="ti ti-pencil"></i> Dissertativa na 2ª fase</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Questões originais e de alto grau de dificuldade: exigem criatividade, rigor na demonstração e domínio de técnicas de prova. Vai do EM avançado até noções de cálculo.</p>
+      <div class="cat-group"><div class="cat-label">Álgebra & números</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Polinômios: divisão, resto, fator, Vieta</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Raízes complexas e multiplicidade</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Números complexos: Moivre, raízes da unidade</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Matrizes, determinantes e sistemas lineares</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Inequações com módulo e parâmetro</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Funções & pré-cálculo</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Funções: injetora/sobrejetora/bijetora, par/ímpar</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Limites, continuidade e assíntotas</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Noção de derivada (taxa de variação)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Exponencial, logaritmo, e e ln</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Geometria & trigonometria</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Trigonometria: identidades, soma, arco duplo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Geometria analítica: cônicas, vetores, polares</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Geometria espacial: poliedros, Euler, seções</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Geometria plana: semelhança, áreas, círculo</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Discreta</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Combinatória: inclusão-exclusão, pigeonhole</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Probabilidade, Bayes, valor esperado</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Indução matemática e recorrências</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Teoria dos números: congruência, Fermat</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Polinômios</span><span class="tag">Complexos</span><span class="tag">Cálculo</span><span class="tag">Combinatória</span><span class="tag">Indução</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.ime.usp.br/~oliveira/ITA-IME.html" target="_blank"><i class="ti ti-external-link"></i>USP — Provas ITA</a><a class="res-link" href="https://www.youtube.com/@ProfFerretto" target="_blank"><i class="ti ti-external-link"></i>Ferretto</a><a class="res-link" href="https://artofproblemsolving.com" target="_blank"><i class="ti ti-external-link"></i>AoPS</a></div>
+    </div>
+  </section>
+
+  <!-- FÍSICA -->
+  <section id="fis" class="course-block blk2">
+    <div class="course-header">
+      <div class="course-num">Matéria 02</div>
+      <div>
+        <div class="course-name">Física</div>
+        <div class="course-meta"><span><i class="ti ti-atom-2"></i> Peso igual à matemática</span><span><i class="ti ti-books"></i> 4 frentes</span><span><i class="ti ti-pencil"></i> Dissertativa (22/10)</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Física do ITA valoriza modelagem e cálculo com unidades. Cobra dedução a partir de princípios, não fórmula decorada — e usa cálculo (derivada/integral) com naturalidade.</p>
+      <div class="cat-group"><div class="cat-label">Mecânica</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Cinemática vetorial e movimento relativo</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Leis de Newton e aplicações</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Trabalho, energia e potência</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Quantidade de movimento e colisões</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Gravitação universal e leis de Kepler</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Estática, hidrostática e empuxo</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Termodinâmica</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Temperatura, dilatação e calorimetria</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Gases ideais e transformações</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>1ª e 2ª leis da termodinâmica</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Ondas & óptica</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>MHS — oscilador harmônico</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ondas, som e interferência</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Óptica geométrica: espelhos e lentes</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Eletromagnetismo & moderna</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Eletrostática: campo e potencial</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Circuitos elétricos (DC)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Magnetismo e indução eletromagnética</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Física moderna: relatividade e quântica (noções)</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Mecânica</span><span class="tag">Termodinâmica</span><span class="tag">Ondas</span><span class="tag">Eletromagnetismo</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.youtube.com/@fisicait" target="_blank"><i class="ti ti-external-link"></i>Física ITA/IME — YT</a><a class="res-link" href="https://www.ime.usp.br/~oliveira/ITA-IME.html" target="_blank"><i class="ti ti-external-link"></i>Provas resolvidas</a><a class="res-link" href="https://pt.khanacademy.org/science/physics" target="_blank"><i class="ti ti-external-link"></i>Khan — Física</a></div>
+    </div>
+  </section>
+
+  <!-- QUÍMICA -->
+  <section id="qui" class="course-block blk3">
+    <div class="course-header">
+      <div class="course-num">Matéria 03</div>
+      <div>
+        <div class="course-name">Química</div>
+        <div class="course-meta"><span><i class="ti ti-flask"></i> Peso igual à matemática</span><span><i class="ti ti-books"></i> 3 frentes</span><span><i class="ti ti-pencil"></i> Dissertativa (21/10)</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Aborda química de forma ampla e interligada: prever o comportamento de reações, interpretar dados experimentais e calcular com precisão (unidades e constantes).</p>
+      <div class="cat-group"><div class="cat-label">Química geral</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Estrutura atômica e modelos</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Tabela periódica e periodicidade</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ligações químicas e geometria molecular</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Funções inorgânicas e reações</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Físico-química</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Estequiometria e cálculos</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Soluções e propriedades coligativas</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Termoquímica</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Cinética química</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Equilíbrio químico e iônico (pH)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Eletroquímica: pilhas e eletrólise</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Química orgânica</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Funções orgânicas e nomenclatura</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Isomeria (plana e espacial)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Reações orgânicas e mecanismos</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Polímeros e bioquímica (noções)</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Atomística</span><span class="tag">Equilíbrio</span><span class="tag">Eletroquímica</span><span class="tag">Orgânica</span></div>
+      <div class="res-row"><a class="res-link" href="https://quimicaparaovestibular.com.br/crbst_7.html" target="_blank"><i class="ti ti-external-link"></i>Química p/ Vestibular — ITA</a><a class="res-link" href="https://pt.khanacademy.org/science/chemistry" target="_blank"><i class="ti ti-external-link"></i>Khan — Química</a></div>
+    </div>
+  </section>
+
+  <!-- INGLÊS -->
+  <section id="ing" class="course-block blk4">
+    <div class="course-header">
+      <div class="course-num">Matéria 04</div>
+      <div>
+        <div class="course-name">Inglês</div>
+        <div class="course-meta"><span><i class="ti ti-language"></i> Nota mínima (não conta na média)</span><span><i class="ti ti-books"></i> Foco em leitura</span><span><i class="ti ti-alert-circle"></i> ≥5/12 para habilitar</span></div>
+      </div>
+    </div>
+    <div class="course-body">
+      <p class="course-desc">Inglês do ITA é dominado por <strong>interpretação de texto</strong>. Não entra na média classificatória, mas exige acerto mínimo na 1ª fase — não dá pra zerar. Estratégia: leitura rápida e vocabulário em contexto.</p>
+      <div class="cat-group"><div class="cat-label">Compreensão de texto</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Ideia principal e propósito do autor</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Inferência e detalhe específico</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Vocabulário em contexto e falsos cognatos</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Gêneros textuais (científico, jornalístico)</span></div>
+      </div></div>
+      <div class="cat-group"><div class="cat-label">Gramática aplicada</div><div class="cat-grid">
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Tempos verbais e aspecto</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Modais, condicionais e voz passiva</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Discurso indireto (reported speech)</span></div>
+        <div class="file-pill"><i class="ti ti-file-text"></i><span>Conectivos e referenciação</span></div>
+      </div></div>
+      <div class="tag-row"><span class="tag">Reading</span><span class="tag">Vocabulário</span><span class="tag">Gramática</span><span class="tag">Falsos cognatos</span></div>
+      <div class="res-row"><a class="res-link" href="https://www.ime.usp.br/~oliveira/ITA-IME.html" target="_blank"><i class="ti ti-external-link"></i>Provas de Inglês ITA</a><a class="res-link" href="https://www.bbc.co.uk/learningenglish" target="_blank"><i class="ti ti-external-link"></i>BBC Learning English</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Biblioteca stdy · Trilha ITA · Matemática · Física · Química · Inglês — <a href="trilha_enem.html">ir para ENEM →</a></footer>
+</body>
+</html>
